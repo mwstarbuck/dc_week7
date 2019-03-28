@@ -23,7 +23,7 @@ router.post('/add-movie', (req, res) => {
     res.redirect('/movies')
 })
 
-router.get('/genre', (req, res) => {
+router.get('/:genre', (req, res) => {
     let genre = req.params.genre
     console.log(genre)
     let filterGenre = movies.filter((movie) => {
@@ -63,6 +63,7 @@ router.post('/details', (req, res) => {
 
 router.get('/api', (req, res) => {
     res.render('api', { movies: movies })
+    // res.send(movies)
 })
 
 
