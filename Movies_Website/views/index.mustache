@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {{> menu}}
+
+    <div>
+    {{#moviesList}}
+    <ul>
+        <li>
+            <img src="{{posterURL}}"></img>
+            <h3>{{title}}</h3>
+            <form action='/movies/details' method='POST'>
+              <input type="hidden" name="movieID" value={{movieID}}>
+              <button type="submit">Get Details</button>
+            </form>
+            
+            <form action='/movies/delete-movie' method='POST'>
+              <input type="hidden" name="movieID" value={{movieID}}>
+              <button type="submit">Delete</button>
+            </form>
+
+
+        </li>
+    {{/moviesList}}
+
+    {{^moviesList}}
+    No Movies To Display
+
+    {{/moviesList}}
+    </ul>
+    </div>
+
+</body>
+
+</html>

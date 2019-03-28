@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+
+<body>
+    {{> menu}}
+
+
+        <form action="/movies/add-movie" method="POST">
+            <input type="text" name="title" placeholder="Movie Title"></input>
+            <input type="text" name="description" placeholder="Description"></input>
+            <input type="text" name="genre" placeholder="Genre"></input>
+            <input type="text" name="posterURL" placeholder="Poster URL"></input>
+            <button type="submit">Add Flick<button>
+        </form>
+
+
+</body>
+
+</html>

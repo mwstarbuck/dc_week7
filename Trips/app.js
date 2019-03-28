@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.engine('mustache', mustacheExpress())
 
 //  below sets the page and the folder
-app.set('index', '/views')
+app.set('views', './views')
 
 app.set('view-engine', 'mustache')
 
