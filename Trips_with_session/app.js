@@ -59,7 +59,7 @@ app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'))
 
 
 app.get('/show-tripz', (req, res) => {
-    res.render('index.mustache', { tripsList: persistedUser.trips })
+    res.render('index.mustache', persistedUser)
 })
 app.get('/', (req, res) => {
     res.render('login.mustache')
@@ -72,7 +72,7 @@ app.post('/login', (req, res) => {
     persistedUser = users.find((user) => {
         return user.username == username && user.password == password
     })
-
+    console.log(persistedUser)
     if (persistedUser) {
         // save username to the session
         if (req.session) {
@@ -80,9 +80,9 @@ app.post('/login', (req, res) => {
 
             res.redirect('/show-tripz')
         }
-        else {
-            res.render('login.mustache', { message: "Invalid user credentials.  Please login again or register a new account" })
-        }
+
+    } else {
+        res.render('login.mustache', { message: "Invalid user credentials.  Please login again or register a new account" })
     }
 })
 
@@ -117,7 +117,7 @@ app.post('/register', (req, res) => {
         return user.username == username && user.password == password
     })
 
-    res.render('index.mustache', { tripsList: persistedUser.trips })
+    res.render('index.mustache', persistedUser)
     console.log(users)
 })
 

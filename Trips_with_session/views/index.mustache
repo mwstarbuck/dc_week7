@@ -15,19 +15,14 @@
     </nav> }}
 
     {{> nav}}
-    <h3>{{persistedUser.username}}</h3>
-    <form action="/add-trip" method="GET">
+    <h6>{{greeting}}{{username}}</h6>
+    {{! <form action="/add-trip" method="GET">
     <button id="addTripBtn">Add a Trip</button>
-    </form>
-
-    <form action="/logout" method="POST">
-    <button type="submit">logout</button>
-    </form>
-
+    </form> }}
 
     <div class="container-fluid border border-info"> 
       <ul style="list-style: none;">
-      {{#tripsList}}
+      {{#trips}}
       <li style="list-style: none;">
       <h3>{{title}}</h3>
       <div>
@@ -42,11 +37,11 @@
       </li>
     
   <!-- end of the iteration on the userList array -->
-    {{/tripsList}}
+    {{/trips}}
 
-  {{^tripsList}}
+  {{^trips}}
     <p>Sorry. No Trips found for user</p>
-  {{/tripsList}}
+  {{/trips}}
   </ul>
    </div> 
 
